@@ -1,0 +1,9 @@
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper > select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
