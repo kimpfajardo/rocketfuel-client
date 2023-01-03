@@ -8,7 +8,7 @@ import Image from "next/image";
 const Plan = () => {
   return (
     <Layout>
-      <div className="flex flex-col h-full">
+      <div className="h-full flex flex-col">
         <div className="py-2 pl-8 flex gap-2">
           <SelectInput
             icon="/images/calendar-date.svg"
@@ -19,30 +19,37 @@ const Plan = () => {
           <SelectInput defaultValue="All sources" />
           <SelectInput defaultValue="4 months" />
         </div>
-        <div className="flex flex-1">
-          <div className="h-full w-2/3 pt-[19px] border-t border-l-outline-default ">
+        <div className="h-full flex flex-1 border-t border-l-outline-default">
+          {/* <div className="w-2/3 pt-[21px]">
+            <HighchartsReact
+              highcharts={Highcharts}
+              containerProps={{ style: { minHeight: "100%" } }}
+              options={config}
+            /> 
+          </div> */}
+          <div className="overflow-x-scroll w-auto pt-[21px] hidescroll">
             <HighchartsReact
               highcharts={Highcharts}
               containerProps={{ style: { minHeight: "100%" } }}
               options={config}
             />
           </div>
-          <div className="h-full w-1/3 border border-l-outline-default">
-            <div className="p-4 border-b border-inherit">
+          <div className="w-[424px] h-[838px] min-w-[424px] border-l border-l-outline-default">
+            <div className="p-4 border-b border-l-outline-default">
               <p className="inter font-bold">November 2022</p>
             </div>
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-[390px] border-b border-l-outline-default">
               <div className="h-full w-full text-center flex items-center justify-center">
                 <div>
-                  <p className="font-semibold text-l-label-link text-2xl">
+                  <p className="font-semibold text-l-label-link text-2xl mb-1">
                     $11,800
                   </p>
-                  <p className="text-l-label-link">
+                  <p className="text-l-label-link mb-1">
                     <span>
                       <b>Revenue</b> forecast
                     </span>
                   </p>
-                  <div className="flex items-centera justify-center">
+                  <div className="flex items-centera justify-center mb-6">
                     <Image
                       src="/images/star.svg"
                       width={14}
@@ -58,17 +65,19 @@ const Plan = () => {
                   </p>
                 </div>
               </div>
-              <div className="h-1/2 w-full text-center flex items-center justify-center">
+            </div>
+            <div className="flex flex-col h-[390px]">
+              <div className="h-full w-full text-center flex items-center justify-center">
                 <div>
-                  <p className="font-semibold text-l-label-link text-2xl">
+                  <p className="font-semibold text-l-label-link text-2xl mb-1">
                     $11,800
                   </p>
-                  <p className="text-l-label-link">
+                  <p className="text-l-label-link mb-1">
                     <span>
                       <b>Revenue</b> forecast
                     </span>
                   </p>
-                  <div className="flex items-centera justify-center">
+                  <div className="flex items-centera justify-center mb-6">
                     <Image
                       src="/images/star.svg"
                       width={14}

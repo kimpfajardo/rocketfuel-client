@@ -40,7 +40,7 @@ export const config = {
     series: [
       {
         data: [
-          0, 4200, 5700, 7550, 8021, 11780, 3600, 6931, 14210, 1220, 5051,
+          0, 4200, 5700, 7550, 8021, 11780, 3600, 6931, 12210, 13220, 15051,
           16100,
         ],
         zoneAxis: "x",
@@ -88,7 +88,6 @@ export const config = {
       },
     ],
     yAxis: {
-      // opposite: true
       title: {
         text: "",
       },
@@ -98,8 +97,6 @@ export const config = {
           fontSize: "12px",
           fontFamily: "Inter",
           whiteSpace: "nowrap",
-          marginTop: "66px",
-          marginBottom: "66px",
           textAlign: "center",
         },
       },
