@@ -1,4 +1,3 @@
-import { inter } from "../../../helpers/constants/font/inter";
 import { inputVariantObject } from "../../../helpers/constants/style";
 import styles from "../../../styles/Select.module.css";
 
@@ -70,9 +69,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
             ""
           )}
           <select
-            className={`border-transparent bg-transparent text-l-label-secondary ${
-              inter.className
-            } focus:outline-none w-full ${
+            className={`border-transparent bg-transparent text-l-label-secondary inter focus:outline-none w-full ${
               icon !== undefined ? "pl-[34px]" : ""
             }`}
             {...inputProps}

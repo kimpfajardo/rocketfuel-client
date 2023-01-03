@@ -82,6 +82,15 @@ module.exports = {
       'd-bg-overlay': '#131F2A',
       'd-bg-nudge': '#9336CE',
     },
+    fontSize: {
+      '4xl': ['64px', '72px'],
+      '3xl': ['40px', '48px'],
+      '2xl': ['32px', '40px'],
+      'xl': ['24px', '32px'],
+      'lg': ['16px', '24px'],
+      'sm': ['14px', '24px'],
+      'xs': ['12px', '16px'],
+    },
     extend: {
       fontFamily: {
         'inter': ['var(--font-inter)']
@@ -89,15 +98,6 @@ module.exports = {
       borderRadius: {
         DEFAULT: '6px'
       },
-      text: {
-        '4xl': ['64px', '72px'],
-        '3xl': ['40px', '48px'],
-        '2xl': ['32px', '40px'],
-        'xl': ['24px', '32px'],
-        'lg': ['16px', '24px'],
-        'sm': ['14px', '24px'],
-        'xs': ['12px', '16px'], 
-      }
     },
 
   },

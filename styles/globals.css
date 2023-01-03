@@ -10,6 +10,32 @@ body {
   overflow-x: hidden;
 }
 
+.highcharts-scrolling::-webkit-scrollbar {
+  display: none !important;
+}
+
+.highcharts-xaxis-labels {
+  padding: 200px 0;
+  height: 57px !important;
+}
+
+.highcharts-xaxis-labels > text {
+  fill: #5a6a72 !important;
+}
+.highcharts-credits {
+  display: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: 'Inter';
+  src: url(../fonts/Inter-Regular.ttf);
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
+}

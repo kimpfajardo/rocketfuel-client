@@ -5,7 +5,7 @@ import { Vspacer } from "../../common/Spacer";
 
 const Sidebar = () => {
   return (
-    <div className="w-16 h-screen border-r border-gray">
+    <div className="w-16 min-w-[64px] h-screen border-r border-gray">
       <div className="h-16 px-4 py-5 border-b border-gray">
         <Image
           alt="RocketFuel logo"
