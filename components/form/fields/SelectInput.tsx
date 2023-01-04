@@ -1,4 +1,4 @@
-import { inputVariantObject } from "../../../helpers/constants/style";
+import { InputVariantArgs, inputVariantObject } from "../../../helpers/constants/style";
 import styles from "../../../styles/Select.module.css";
 
 export interface SelectProps<OptionsType> {
@@ -11,6 +11,7 @@ export interface SelectProps<OptionsType> {
   options?: OptionsType[];
   icon?: string;
   width?: string;
+  style?: InputVariantArgs
 }
 
 interface OptionsProp {
@@ -27,12 +28,14 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
     disabled = false,
     defaultValue = "",
     options,
-    icon = undefined,
+    icon,
+    style
   } = props;
 
   const generateClass = () => {
+  
     return `focus:shadow-[0_0_0_2px_#9AB5F9] focus:outline-none focus:border-l-outline-active ${
-      inputVariantObject[error !== undefined ? "error" : variant].border[
+      inputVariantObject(style)[error !== undefined ? "error" : variant].border[
         !disabled ? "default" : "disabled"
       ]
     }`;
@@ -44,14 +47,13 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
     disabled,
     defaultValue,
   };
-
   return (
     <>
       <div>
         {label !== "" ? (
           <p
             className={`mb-2 text-sm font-medium ${
-              inputVariantObject[variant].label[
+              inputVariantObject(style)[variant].label[
                 !disabled ? "default" : "disabled"
               ]
             }`}
@@ -64,12 +66,12 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
         )}
         <div className={`${styles.selectWrapper} ${inputClassName}`}>
           {icon !== undefined ? (
-            <img className="absolute z-[-1]" src={icon} alt={"icon"} />
+            <img className="absolute" src={icon} alt={"icon"} />
           ) : (
             ""
           )}
           <select
-            className={`border-transparent bg-transparent text-l-label-secondary inter focus:outline-none w-full ${
+            className={`border-transparent bg-transparent ${style?.textColor ?? 'text-l-label-sercondary'} inter focus:outline-none w-full ${
               icon !== undefined ? "pl-[34px]" : ""
             }`}
             {...inputProps}
@@ -80,7 +82,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
             ))}
           </select>
           <img
-            className="absolute right-[12px] z-[-1]"
+            className={`absolute right-[12px]`}
             src="/images/chevron.svg"
             alt="V"
             onClick={(e) => e.preventDefault()}
