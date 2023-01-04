@@ -24,7 +24,7 @@ export const config = {
           click: (e: any) => {
             const category = e.point.category;
             const value = e.point.y;
-            // console.log("click event", category, value);
+            console.log("click event", category, value);
           },
         },
       },
