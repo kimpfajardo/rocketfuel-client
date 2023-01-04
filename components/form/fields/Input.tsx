@@ -1,4 +1,4 @@
-import { inputVariantObject } from "../../../helpers/constants/style";
+import { InputVariantArgs, inputVariantObject } from "../../../helpers/constants/style";
 
 export interface InputProps {
   type?: any;
@@ -8,6 +8,7 @@ export interface InputProps {
   variant?: "outline" | "flat";
   disabled?: boolean;
   placeholder?: string;
+  style: InputVariantArgs
 }
 
 const Input = (props: InputProps) => {
@@ -19,11 +20,12 @@ const Input = (props: InputProps) => {
     variant = "outline",
     disabled = false,
     placeholder = "Value",
+    style
   } = props;
 
   const generateClass = () => {
     return `focus:shadow-[0_0_0_2px_#9AB5F9] focus:outline-none focus:border-l-outline-active ${
-      inputVariantObject[error !== undefined ? "error" : variant].border[
+      inputVariantObject(style)[error !== undefined ? "error" : variant].border[
         !disabled ? "default" : "disabled"
       ]
     }`;
@@ -43,7 +45,7 @@ const Input = (props: InputProps) => {
       <label>
         <p
           className={`mb-2 text-sm font-medium ${
-            inputVariantObject[variant].label[
+            inputVariantObject(style)[variant].label[
               !disabled ? "default" : "disabled"
             ]
           }`}

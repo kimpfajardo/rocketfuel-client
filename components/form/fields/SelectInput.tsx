@@ -36,11 +36,11 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
   } = props;
 
   const generateClass = () => {
-    //@ts-ignore
-    // const x = inputVariantObject(style);
-    // const y = x[error !== undefined ? "error" : variant];
-    // const z = y.border[!disabled ? "default" : "disabled"];
-    return `focus:shadow-[0_0_0_2px_#9AB5F9] focus:outline-none focus:border-l-outline-active `;
+    return `focus:shadow-[0_0_0_2px_#9AB5F9] focus:outline-none focus:border-l-outline-active ${
+      inputVariantObject(style)[error !== undefined ? "error" : variant].border[
+        !disabled ? "default" : "disabled"
+      ]
+    }`;
   };
 
   const inputClassName = `px-4 py-2 flex items-center text-sm pr-10 rounded disabled:text-l-label-disabled ${generateClass()}`;
