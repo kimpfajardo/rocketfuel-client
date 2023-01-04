@@ -78,7 +78,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
           >
             <option value="">{defaultValue}</option>
             {options?.map((item: any) => (
-              <option value={item.value}>{item.label}</option>
+              <option value={item.value} key={item.label}>{item.label}</option>
             ))}
           </select>
           <img
