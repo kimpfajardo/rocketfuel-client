@@ -15,6 +15,7 @@ export interface SelectProps<OptionsType> {
   icon?: string;
   width?: string;
   style?: InputVariantArgs;
+  name: string;
 }
 
 interface OptionsProp {
@@ -33,6 +34,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
     options,
     icon,
     style,
+    name,
   } = props;
 
   const generateClass = () => {
@@ -51,7 +53,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
   };
   return (
     <>
-      <div>
+      <label htmlFor={name}>
         {label !== "" ? (
           <p
             className={`mb-2 text-sm font-medium ${
@@ -78,6 +80,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
             } inter focus:outline-none w-full ${
               icon !== undefined ? "pl-[34px]" : ""
             }`}
+            id={name}
             {...inputProps}
           >
             <option value="">{defaultValue}</option>
@@ -94,7 +97,7 @@ const SelectInput = (props: SelectProps<OptionsProp>) => {
             onClick={(e) => e.preventDefault()}
           />
         </div>
-      </div>
+      </label>
       {error && !disabled ? (
         <p className="text-l-label-dangerous text-xs mt-2">{error}</p>
       ) : (

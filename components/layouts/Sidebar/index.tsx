@@ -1,26 +1,14 @@
 import Image from "next/image";
-import { mockNavigation } from "../../../helpers/mocks/mockNavigation";
 import SidebarItem from "./SideBarItem";
-import { Vspacer } from "../../common/Spacer";
+import { sidebarNavigation } from "@helpers/constants/navigation/sidebar";
+import Logo from "./Logo";
+import Navigation from "./Navigation";
 
 const Sidebar = () => {
   return (
-    <div className="w-16 min-w-[64px] h-screen border-r border-gray">
-      <div className="h-16 px-4 py-5 border-b border-gray">
-        <Image
-          alt="RocketFuel logo"
-          src="/images/logo.svg"
-          width={30}
-          height={24}
-        />
-      </div>
-      <nav className="py-4">
-        <ul>
-          {mockNavigation.map((item) => (
-            <SidebarItem {...item} key={item.icon} />
-          ))}
-        </ul>
-      </nav>
+    <div className="w-full h-screen border-r border-gray grid grid-cols-1 grid-rows-[64px_1fr]">
+      <Logo />
+      <Navigation />
     </div>
   );
 };

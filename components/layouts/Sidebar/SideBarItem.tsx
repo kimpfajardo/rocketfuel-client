@@ -1,15 +1,11 @@
+import { SidebarItemProps } from "@helpers/types/layout";
 import Image from "next/image";
 
-interface SidebarItemProps {
-  icon: string;
-  title: string;
-}
-
 const SidebarItem = (props: SidebarItemProps) => {
-  const { icon, title } = props;
+  const { url, title } = props;
   return (
-    <li className="px-5 py-4">
-      <Image src={icon} alt={title} width={24} height={24} />
+    <li className="w-full h-12 flex justify-center">
+      <Image src={url} alt={title} width={16} height={16} />
     </li>
   );
 };
