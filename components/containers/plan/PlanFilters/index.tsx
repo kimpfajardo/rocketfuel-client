@@ -1,19 +1,17 @@
-import SelectInput from "@components/form/fields/SelectInput";
+import Select from "@components/form/fields/Select";
+import planFilters from "@helpers/constants/filters/planFilters";
 
 const PlanFilters = () => {
-    return (
-      <div className="h-auto py-2 pl-8 flex gap-2">
-        <SelectInput
-          icon="/images/calendar-date.svg"
-          defaultValue="November 2022"
-          name='plan-date'
-        />
-        <SelectInput icon="/images/coins.svg" defaultValue="Efficiency" name='plan-efficiency' />
-        <SelectInput defaultValue="All types" name='plan-types' />
-        <SelectInput defaultValue="All sources" name='plan-sources' />
-        <SelectInput defaultValue="4 months" name='plan-duration' />
-      </div>
-    );
-}
+  const filters = planFilters
+  return (
+    <div className="h-auto py-2 pl-8 flex gap-2">
+      {
+        filters.map((item: any)=> {
+          return <Select {...item} />;
+        })
+      }
+    </div>
+  );
+};
 
-export default PlanFilters
+export default PlanFilters;

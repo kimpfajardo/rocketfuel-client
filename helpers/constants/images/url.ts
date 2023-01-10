@@ -10,4 +10,8 @@ export const NAV_FUNNEL = "/images/funnel.svg";
 export const NAV_SOURCES = "/images/sunburst.svg";
 export const NAV_LOGS = "/images/book-open.svg";
 
-export const NAV_AVATAR_MOCK = "/images/profile-image.png"
+export const NAV_AVATAR_MOCK = "/images/profile-image.png";
+
+export const CHEVRON = "/images/chevron.svg";
+export const CALENDAR = "/images/calendar-date.svg";
+export const COINS = "/images/coins.svg";
