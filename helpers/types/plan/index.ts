@@ -5,9 +5,13 @@ export interface PlanFilterObject {
   menu?: FilterMenuObject[];
   placeholder: string
   defaultValue?: FilterMenuObject
+  width?: string
+  dynamicAdornment?: boolean
 }
 
 export interface FilterMenuObject {
   label: string
   value: any
+  startAdornment?: React.ReactNode
+  disabled?: boolean
 }

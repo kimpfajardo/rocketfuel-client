@@ -13,5 +13,20 @@ export const NAV_LOGS = "/images/book-open.svg";
 export const NAV_AVATAR_MOCK = "/images/profile-image.png";
 
 export const CHEVRON = "/images/chevron.svg";
+export const CHEVRON_WHITE = "/images/chevron-white.svg";
 export const CALENDAR = "/images/calendar-date.svg";
-export const COINS = "/images/coins.svg";
+export const COINS_GRAY = "/images/coins.svg";
+export const COINS = "/images/coins-black.svg";
+export const STAR_RED = "/images/star.svg";
+export const STAR = "/images/star-black.svg";
+export const EDIT = "/images/edit-outline.svg";
+export const SETTINGS = "/images/settings.svg";
+export const FUNNEL = "/images/funnel-black.svg";
+
+export const APPLE = "/images/apple.svg"
+export const FB = "/images/fb.svg"
+export const INSTRAGRAM = "/images/instagram.svg"
+export const BING = "/images/bing.svg"
+export const MISC = "/images/misc.svg"
+export const LINKEDIN = "/images/linkedin.svg"
+export const GOOGLE = "/images/google.svg"

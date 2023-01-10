@@ -7,7 +7,7 @@ const PlanFilters = () => {
     <div className="h-auto py-2 pl-8 flex gap-2">
       {
         filters.map((item: any)=> {
-          return <Select {...item} />;
+          return <Select {...item} menuCn='left-0' />;
         })
       }
     </div>

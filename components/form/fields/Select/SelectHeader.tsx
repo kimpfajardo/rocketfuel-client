@@ -1,17 +1,23 @@
 import Image from "next/image";
 import AdornmentContainer from "../AdornmentContainer";
-import { CHEVRON } from "@helpers/constants/images/url";
+import { CHEVRON, CHEVRON_WHITE } from "@helpers/constants/images/url";
+import React from "react";
 
 const SelectHeader = (props: any) => {
-  const { startAdornment, displayValue } = props;
+  const { startAdornment, displayValue, isSolid, dynamicAdornment, value } =
+    props;
+  const chevronIcon = isSolid ? CHEVRON_WHITE : CHEVRON;
+  const adornment = dynamicAdornment
+    ? value?.startAdornment ?? startAdornment
+    : startAdornment;
   return (
-    <div className="flex items-center gap-4">
-      <AdornmentContainer startAdornment={startAdornment}>
-        <p className="text-sm text-l-label-secondary">{displayValue}</p>
+    <div className="flex items-center gap-4 cursor-pointer">
+      <AdornmentContainer startAdornment={adornment}>
+        <p className="text-sm">{displayValue}</p>
       </AdornmentContainer>
-      <Image src={CHEVRON} width={16} height={16} alt="" />
+      <Image src={chevronIcon} width={16} height={16} alt="" />
     </div>
   );
 };
 
-export default SelectHeader
+export default SelectHeader;
