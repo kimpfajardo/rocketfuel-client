@@ -1,15 +1,37 @@
-import useClickAway from "@components/common/ClickAwayListener";
+import useClickAway from "../../../../hooks/useClickAway";
 import { FilterMenuObject } from "@helpers/types/plan";
-import { useRef } from "react";
+import { useMemo, useRef, Fragment } from "react";
 import { useState } from "react";
 import SelectMenu from "./SelectMenu";
 import SelectHeader from "./SelectHeader";
+import _ from "lodash";
+import { useInitializeSelect } from "./hooks";
+import { InputVariant } from "@helpers/types/input";
 
-const Select = (props: any) => {
+export interface SelectProps {
+  startAdornment?: React.ReactNode;
+  defaultValue?: FilterMenuObject;
+  label?: string;
+  displayLabel?: boolean;
+  name: string;
+  menu: FilterMenuObject[];
+  placeholder?: string;
+  placeholderOnly?: boolean;
+  variant: InputVariant;
+  bgColor?: string;
+  cn?: string;
+  menuCn?: string;
+  width?: string;
+  isDynamicAdornment?: boolean;
+  isDefaultValueSeparate?: boolean;
+}
+
+const Select = (props: SelectProps) => {
   const {
     startAdornment,
     defaultValue,
-    label,
+    label = "",
+    displayLabel = true,
     name,
     menu,
     placeholder,
@@ -19,11 +41,20 @@ const Select = (props: any) => {
     cn,
     menuCn,
     width,
-    dynamicAdornment = false
+    isDynamicAdornment = false,
+    isDefaultValueSeparate = false,
   } = props;
   const selectRef = useRef<HTMLDivElement>(null);
+  const { initialMenu, initialValue } = useInitializeSelect(
+    menu,
+    defaultValue as FilterMenuObject
+  );
   const [showMenu, setShowMenu] = useState(false);
-  const [value, setValue] = useState<FilterMenuObject | null>(defaultValue ?? null);
+  const [value, setValue] = useState<FilterMenuObject | null>(
+    initialValue ?? null
+  );
+  const initialDefaultValue = initialValue;
+  const filterMenu = initialMenu;
   const nonPlaceHolderValue = value
     ? value.label
     : defaultValue?.label ?? placeholder;
@@ -44,7 +75,7 @@ const Select = (props: any) => {
     setValue(newValue);
   };
 
-  const className = () => {
+  const className = useMemo(() => {
     const border = isOutline ? "border border-l-outline-default" : "";
     const bg = isSolid ? bgColor : "bg-transparent";
     const textColor = isSolid ? "text-l-label-reverse" : "text-l-label-primary";
@@ -52,24 +83,29 @@ const Select = (props: any) => {
     const generatedClassName = `${border} ${bg} ${textColor} ${additionalClassName} ${cn} `;
 
     return generatedClassName;
-  };
+  }, []);
 
   return (
-    <div className={className()} id={name} ref={selectRef} onClick={toggleMenu}>
-      <SelectHeader
-        startAdornment={startAdornment}
-        displayValue={displayValue}
-        value={value}
-        isSolid={isSolid}
-        dynamicAdornment={dynamicAdornment}
-      />
-      <SelectMenu
-        showMenu={showMenu}
-        menu={menu}
-        onChange={onChangeHandler}
-        menuCn={`${menuCn}`}
-        width={width}
-      />
+    <div className='flex flex-col gap-1'>
+      {displayLabel && <p>{label}</p>}
+      <div className={className} id={name} ref={selectRef} onClick={toggleMenu}>
+        <SelectHeader
+          startAdornment={startAdornment}
+          displayValue={displayValue}
+          value={value}
+          isSolid={isSolid}
+          isDynamicAdornment={isDynamicAdornment}
+        />
+        <SelectMenu
+          showMenu={showMenu}
+          menu={filterMenu}
+          onChange={onChangeHandler}
+          menuCn={`${menuCn}`}
+          width={width}
+          initialDefaultValue={initialDefaultValue}
+          isDefaultValueSeparate={isDefaultValueSeparate}
+        />
+      </div>
     </div>
   );
 };

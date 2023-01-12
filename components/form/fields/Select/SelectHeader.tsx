@@ -4,10 +4,10 @@ import { CHEVRON, CHEVRON_WHITE } from "@helpers/constants/images/url";
 import React from "react";
 
 const SelectHeader = (props: any) => {
-  const { startAdornment, displayValue, isSolid, dynamicAdornment, value } =
+  const { startAdornment, displayValue, isSolid, isDynamicAdornment, value } =
     props;
   const chevronIcon = isSolid ? CHEVRON_WHITE : CHEVRON;
-  const adornment = dynamicAdornment
+  const adornment = isDynamicAdornment
     ? value?.startAdornment ?? startAdornment
     : startAdornment;
   return (

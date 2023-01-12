@@ -1,5 +1,6 @@
 export interface LayoutProps {
   children: React.ReactNode;
+  headerContent: React.ReactNode;
 }
 
 export interface MainProps {

@@ -3,15 +3,17 @@ export interface PlanFilterObject {
   endAdornment?: React.ReactNode;
   label: string;
   menu?: FilterMenuObject[];
-  placeholder: string
-  defaultValue?: FilterMenuObject
-  width?: string
-  dynamicAdornment?: boolean
+  placeholder: string;
+  defaultValue?: FilterMenuObject;
+  width?: string;
+  isDynamicAdornment?: boolean;
+  isDefaultValueSeparate?: boolean;
 }
 
 export interface FilterMenuObject {
-  label: string
-  value: any
-  startAdornment?: React.ReactNode
-  disabled?: boolean
+  label: string;
+  value: any;
+  startAdornment?: React.ReactNode;
+  disabled?: boolean;
+  defaultValue?: boolean;
 }

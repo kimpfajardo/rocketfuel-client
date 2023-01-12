@@ -1,15 +1,17 @@
 import { FilterMenuObject } from "@helpers/types/plan";
 import SelectMenuItem from "./SelectMenuItem";
-
-
+import { Fragment } from "react";
+import SelectMenuDivider from "./SelectMenuDivider";
 
 const SelectMenu = (props: any) => {
-  const { showMenu, menu, onChange, menuCn,width } = props;
+  const { showMenu, menu, onChange, menuCn, width, isDefaultValueSeparate } =
+    props;
   const isListRenderable = menu && menu.length > 0;
   const style = {
     boxShadow: "0px 7px 12px 1px rgba(0,0,0,0.16)",
-    width
+    width,
   };
+
   return (
     <>
       {showMenu && (
@@ -19,11 +21,13 @@ const SelectMenu = (props: any) => {
         >
           {isListRenderable &&
             menu.map((item: FilterMenuObject, index: number) => (
-              <SelectMenuItem
-                key={`${item.label}-${item.value}-${index}`}
-                item={item}
-                onChange={onChange}
-              />
+              <Fragment key={`${item.label}-${item.value}-${index}`}>
+                <SelectMenuItem item={item} onChange={onChange} />
+                <SelectMenuDivider
+                  isDefaultValueSeparate={isDefaultValueSeparate}
+                  index={index}
+                />
+              </Fragment>
             ))}
         </div>
       )}

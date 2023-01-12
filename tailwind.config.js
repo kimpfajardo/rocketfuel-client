@@ -92,12 +92,20 @@ module.exports = {
       'xs': ['12px', '16px'],
     },
     extend: {
+      boxShadow: {
+        'sm': '0 2px 4px 0 rgb(0 0 0 / 0.16)',
+        DEFAULT: '0 5px 8px 0 rgb(0 0 0 / 0.16)',
+        'md': '0 7px 12px 1px rgb(0 0 0 / 0.16)',
+        'lg': '0 8px 24px 2px rgb(0 0 0 / 0.12)',
+        'xl': '0 16px 38px 3px rgb(0 0 0 / 0.14)',
+      },
       fontFamily: {
         'inter': ['var(--font-inter)']
       },
       borderRadius: {
         DEFAULT: '6px'
       },
+
     },
 
   },

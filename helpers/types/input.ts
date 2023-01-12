@@ -1,1 +1,1 @@
-export type InputVariant = "outline" | "solid";
+export type InputVariant = "solid" | "outline" | "flat";
